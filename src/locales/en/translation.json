@@ -1,0 +1,53 @@
+{
+  "navbar": {
+    "courses": "Courses",
+    "activity": "Activities",
+    "teachers": "Teachers",
+    "media": "Videos",
+    "contact": "Contact"
+  },
+  "titles": {
+    "courses": "Courses",
+    "discount": "Discounts",
+    "activity": "Activities",
+    "news": "News",
+    "teachers": "Teachers",
+    "media": "Media"
+    
+    
+  },
+  "footer":{
+    "links":"Links",
+    "courses":"Courses",
+    "activity":"Activities",
+    "teachers":"Teachers",
+    "media":"Media",
+    "contact":"Contact",
+    "contactus":"Contact with us "
+  },
+  "allnews":{
+    "all":"All"
+  },
+  "verifycode":{
+    "send":"Send",
+    "name":"Name",
+    "gmail":"gmail",
+    "formTitle":"Contact with us",
+    "comment":"Comments",
+    "verificationTitle":"Verification Code",
+    "alertRight":"Email verified and contact saved successfully!",
+    "alertWrong":"Verification code is incorrect or expired.",
+    "error":"An error occurred. Please try again.",
+    "succes":"Form sent successfully!",
+    "fillForms":"Please fill all the fields.",
+    "codeSent":"Code sent! Please check your email.",
+    "enterCode":"Please enter the verification code.",
+    "sending":"Sending...",
+    "verification":"Verification code",
+    "verifyButton":"Verify Code",
+    "enter":"Enter your code..."
+    
+    
+    }
+
+}

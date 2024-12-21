@@ -1,0 +1,49 @@
+{
+    "navbar":{
+        "courses":"Okuwlar",
+        "activity":"Çäreler",
+        "teachers":"Mugallymlar",
+        "media":"Wideolar",
+        "contact":"Habarlaşmak"
+    },
+    "titles":{
+      "courses":"Okuwlar",
+      "discount":"Ýeňillikler",
+      "activity":"Çäreler",
+      "news":"Täzelikler",
+      "teachers":"Mugallymlar",
+      "media":"Media"
+    },
+    "footer":{
+        "links":"Linkler",
+        "courses":"Okuwlar",
+        "activity":"Çäreler",
+        "teachers":"Mugallymlar",
+        "media":"Wideolar",
+        "contact":"Habarlaşmak",
+        "contactus":"Biziň bilen habarlaşyň"
+    },
+    "allnews":{
+      "all":"Ählisi"
+    },
+    "verifycode":{
+    "send":"Ugrat",
+    "name":"Ady",
+    "gmail":"gmail",
+    "formTitle":"Biziň bilen habarlaşyň",
+    "comment":"Teswir",
+    "verificationTitle":"Tassyklama kody",
+    "alertRight":"Email tassyklanyldy we aragatnaşyk üstünlikli saklandy!",
+    "alertWrong":"Tassyklama kody ýalňyş!.",
+    "error":"Nädogry bir zat boldy.Täzeden synanyşyp görüň",
+    "succes":"Form üstünlikli goýberildi!",
+    "fillForms":"Hemme ýerleri dolduryň.",
+    "codeSent":"Kod iberildi! Emailiňizi barlaň.",
+    "enterCode":"Tassyklama koduny giriziň!.",
+    "sending":"Goýberilýär...",
+    "verification":"Tassyklma kody",
+    "verifyButton":"Tassykla",
+    "enter":"Koduňyzy giriziň..."
+    
+    }
+}
