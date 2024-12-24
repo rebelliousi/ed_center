@@ -1,20 +1,12 @@
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { useQuery } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
-import { api } from "../api";
-import { NewsDetails } from "../types/News";
 import { AiOutlineCalendar } from "react-icons/ai";
 import { useTranslation } from "react-i18next";
+import { useNews } from "../Hooks/useNews";
 
 const News: React.FC = () => {
-  const { data } = useQuery<NewsDetails[]>({
-    queryKey: ["news"],
-    queryFn: async () => {
-      const response = await api.get("/news/");
-      return response.data;
-    },
-  });
+  const { data } = useNews()
 
   const { t } = useTranslation();
 

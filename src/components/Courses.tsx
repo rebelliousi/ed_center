@@ -1,17 +1,11 @@
 import { Link } from "react-router-dom";
 import { CourseData } from "../types/Course";
-import { useQuery } from "@tanstack/react-query";
-import { api } from "../api";
+
 import { useTranslation } from "react-i18next";
+import {useCategory} from "../Hooks/useCourses"
 
 const Courses: React.FC = () => {
-  const { data: categories } = useQuery<CourseData[]>({
-    queryKey: ["categories"],
-    queryFn: async (): Promise<CourseData[]> => {
-      const response = await api.get("/categories/"); // Backend'e istek gönderiliyor
-      return response.data;
-    },
-  });
+  const { data: categories } = useCategory()
   const { t } = useTranslation();
 
   return (

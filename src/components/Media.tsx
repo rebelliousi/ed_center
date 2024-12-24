@@ -1,21 +1,14 @@
-import { useQuery } from "@tanstack/react-query";
 import { useState, useRef } from "react";
 import Slider from "react-slick";
-import { api } from "../api";
 import { videoData } from "../types/Media";
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useTranslation } from "react-i18next";
+import {useMedia} from "../Hooks/useMedia"
 
 const Media: React.FC = () => {
-  const { data: videos } = useQuery<videoData[]>({
-    queryKey: ["videos"],
-    queryFn: async () => {
-      const response = await api.get("/videos/");
-      return response.data;
-    },
-  });
+  const { data: videos } = useMedia()
 
   const { t } = useTranslation();
 

@@ -1,16 +1,9 @@
 import { DiscountData } from "../types/Discount";
-import { useQuery } from "@tanstack/react-query";
-import { api } from "../api";
 import { useTranslation } from "react-i18next";
+import { useDiscount } from "../Hooks/useDiscount";
 
 const Discount: React.FC = () => {
-  const { data } = useQuery<DiscountData[]>({
-    queryKey: ["discount"],
-    queryFn: async (): Promise<DiscountData[]> => {
-      const response = await api.get<DiscountData[]>("/discountitems/");
-      return response.data;
-    },
-  });
+  const { data } = useDiscount()
 
   const { t } = useTranslation();
 

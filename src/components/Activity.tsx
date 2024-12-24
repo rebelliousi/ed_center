@@ -1,12 +1,10 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { slideData } from "../types/ActIvity";
 import { useRef, useState } from "react";
 import { HiChevronLeft, HiChevronRight, HiX } from "react-icons/hi";
-import { useQuery } from "@tanstack/react-query";
-import { api } from "../api";
 import { useTranslation } from "react-i18next";
+import {useActivity} from "../Hooks/UseActivity"
 
 const Activity: React.FC = () => {
   const outerSliderRef = useRef<Slider | null>(null);
@@ -15,13 +13,7 @@ const Activity: React.FC = () => {
 
   const { t } = useTranslation();
 
-  const { data: socialactivity } = useQuery<slideData[]>({
-    queryKey: ["socialactivity"],
-    queryFn: async (): Promise<slideData[]> => {
-      const response = await api.get("/socialactivities/");
-      return response.data;
-    },
-  });
+  const { data: socialactivity } = useActivity()
 
   const openModal = (content: string) => {
     setModalContent(content);

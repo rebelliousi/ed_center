@@ -1,20 +1,13 @@
 import { useParams } from "react-router-dom";
-import { useQuery } from "@tanstack/react-query";
-import { api } from "../api";
-import { NewsDetails } from "../types/News";
+import { useNewsDetailsPage } from "../Hooks/useNewsDetailsPage";
 
 const NewsDetailPage: React.FC = () => {
-  const { id } = useParams();
+  const { id } = useParams<{ id: string }>(); 
 
-  const { data } = useQuery<NewsDetails>({
-    queryKey: ["newsDetails", id],
-    queryFn: async () => {
-      if (!id) throw new Error("Invalid ID");
-      const response = await api.get(`/news/${id}`);
-      return response.data;
-    },
-  });
+ 
+  const idNumber = id ? Number(id) : undefined;
 
+  const { data } = useNewsDetailsPage(idNumber); 
   return (
     <div id="newsdetail" className="container mx-auto p-4 font-jakarta">
       {data && (

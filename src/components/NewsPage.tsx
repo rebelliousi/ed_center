@@ -1,19 +1,11 @@
 import { useState } from "react";
-import { useQuery } from "@tanstack/react-query";
-import { api } from "../api";
-import { NewsDetails } from "../types/News";
 import { useNavigate } from "react-router-dom";
 import { AiOutlineCalendar } from "react-icons/ai";
 import { useTranslation } from "react-i18next";
+import { useNewsPage } from "../Hooks/useNewsPage";
 
 const NewsPage: React.FC = () => {
-  const { data } = useQuery<NewsDetails[]>({
-    queryKey: ["news"],
-    queryFn: async () => {
-      const response = await api.get("/news/");
-      return response.data;
-    },
-  });
+  const { data } = useNewsPage();
   const { t } = useTranslation();
 
   const [currentPage, setCurrentPage] = useState(1);

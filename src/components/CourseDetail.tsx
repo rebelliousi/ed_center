@@ -1,4 +1,4 @@
-import { useQuery, useMutation } from "@tanstack/react-query";
+import {  useMutation } from "@tanstack/react-query";
 import { AiOutlineLike, AiFillLike, AiOutlineClose } from "react-icons/ai";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -7,12 +7,13 @@ import { useRef, useState } from "react";
 import { IoIosArrowBack } from "react-icons/io";
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
 import { useNavigate, useParams } from "react-router-dom";
-import { levels } from "../types/CourseDetails";
+import { useCourseDetail } from "../Hooks/useCourseDetail";
 import { api } from "../api";
 import { useTranslation } from "react-i18next";
 
 const CourseDetail: React.FC = () => {
-  const { id } = useParams();
+  const { id } = useParams<{id:string}>();
+  const idNumber= id ? Number(id) : undefined
   const navigate = useNavigate();
   const sliderRef = useRef<Slider | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -52,13 +53,7 @@ const CourseDetail: React.FC = () => {
     arrows: false,
   };
 
-  const { data } = useQuery<levels>({
-    queryKey: ["courseDetail", id],
-    queryFn: async (): Promise<levels> => {
-      const response = await api.get(`category_details/${id}`);
-      return response.data;
-    },
-  });
+  const { data } =useCourseDetail(idNumber)
 
   const likeMutation = useMutation({
     mutationFn: async (teacherId: number) => {

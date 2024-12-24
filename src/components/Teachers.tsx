@@ -2,10 +2,8 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { teachersData } from "../types/Teachers";
-import { useQuery } from "@tanstack/react-query";
-import { api } from "../api";
 import { useTranslation } from "react-i18next";
+import {useTeachers} from "../Hooks/useTeachers"
 
 const Teachers: React.FC = () => {
   const settings = {
@@ -48,14 +46,7 @@ const Teachers: React.FC = () => {
 
   const { t } = useTranslation();
 
-  const { data: teacher } = useQuery<teachersData[]>({
-    queryKey: ["teacher"],
-    queryFn: async (): Promise<teachersData[]> => {
-      const response = await api.get("/teachers/");
-      return response.data;
-    },
-  });
-
+  const { data: teacher } =useTeachers()
   return (
     <div
       id="teachers"

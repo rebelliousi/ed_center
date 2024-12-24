@@ -1,23 +1,16 @@
 import React, { useRef, useState } from "react";
 import Slider from "react-slick";
-import { useQuery } from "@tanstack/react-query";
 import { SliderBanner } from "../types/Slider";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
-import { api } from "../api";
+import { useSlider  } from "../Hooks/useSlider";
 
 const AutoSlider: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const sliderRef = useRef<Slider>(null);
 
-  const { data: banner } = useQuery<SliderBanner[]>({
-    queryKey: ["banner"],
-    queryFn: async (): Promise<SliderBanner[]> => {
-      const response = await api.get("banner/");
-      return response.data;
-    },
-  });
+  const { data: banner } = useSlider()
 
   const settings = {
     infinite: true,
